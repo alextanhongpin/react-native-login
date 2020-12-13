@@ -32,6 +32,7 @@ export default function SignInScreen({
       />
       <TextInput
         value={password}
+        secureTextEntry={true}
         onChangeText={setPassword}
         style={styles.input}
         autoCompleteType="password"
