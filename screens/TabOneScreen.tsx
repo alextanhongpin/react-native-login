@@ -1,10 +1,13 @@
 import * as React from "react";
-import { StyleSheet } from "react-native";
+import { StyleSheet, Button } from "react-native";
 
 import EditScreenInfo from "../components/EditScreenInfo";
 import { Text, View } from "../components/Themed";
+import { useAuth } from "../hooks/useAuth";
 
 export default function TabOneScreen() {
+  const auth = useAuth();
+  const handleSignOut = () => auth.signOut();
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Tab One</Text>
@@ -14,6 +17,7 @@ export default function TabOneScreen() {
         darkColor="rgba(255,255,255,0.1)"
       />
       <EditScreenInfo path="/screens/TabOneScreen.tsx" />
+      <Button onPress={handleSignOut} title="Sign Out" />
     </View>
   );
 }
